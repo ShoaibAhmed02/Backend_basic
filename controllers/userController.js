@@ -1,8 +1,10 @@
 const express = require("express");
+const app = express();
 const User = require("../Model/User");
 const bcrypt = require("bcrypt");
 const process = require("process");
 const dotenv = require("dotenv").config();
+const Joi = require("@hapi/joi");
 const jwt = require("jsonwebtoken");
 //register user
 const register = async (req, res) => {
@@ -155,4 +157,6 @@ const GetUser = async (req, res) => {
       .send({ status: 0, message: "Successfully fetched! Failed" });
   }
 };
+
+
 module.exports = { register, file_upload, SignIn, GetUser };
